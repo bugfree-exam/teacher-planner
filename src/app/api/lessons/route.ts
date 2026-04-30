@@ -17,10 +17,29 @@ export async function GET() {
 export async function POST(req: Request) {
   const body = await req.json();
 
+    if (body.studentId) {
+      const student = await prisma.student.findUnique({
+        where: { id: body.studentId,
+                status: {
+                  not: "FINISHED"
+                },
+        },
+      });
+
+      if (!student || student.status === "FINISHED") {
+        return NextResponse.json(
+          { error: "Нельзя создать занятие для выпускника" },
+          { status: 400 }
+        );
+      }
+    }
+
   const repeatWeeks = Number(body.repeatWeeks || 0);
   const count = repeatWeeks > 0 ? repeatWeeks : 1;
 
   const baseDate = new Date(body.startsAt);
+
+  
 
   const lessons = await Promise.all(
     Array.from({ length: count }).map((_, index) => {
@@ -47,6 +66,19 @@ export async function POST(req: Request) {
 
 export async function PATCH(req: Request) {
   const body = await req.json();
+
+    if (body.studentId) {
+      const student = await prisma.student.findUnique({
+        where: { id: body.studentId },
+      });
+
+      if (!student || student.status === "FINISHED") {
+        return NextResponse.json(
+          { error: "Нельзя создать занятие для выпускника" },
+          { status: 400 }
+        );
+      }
+    }
 
   const oldLesson = await prisma.lesson.findUnique({
     where: { id: body.id },

@@ -10,7 +10,7 @@ export async function GET() {
         },
       },
     },
-    orderBy: { createdAt: "desc" },
+    orderBy: { fullName: "asc" },
     
   });
 
