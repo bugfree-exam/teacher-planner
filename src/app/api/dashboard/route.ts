@@ -56,6 +56,11 @@ export async function GET() {
       },
     },
     orderBy: { fullName: "asc" },
+    where: {
+      status: {
+        not: "FINISHED"
+      }
+    }
   });
 
   const balances = students.map((student) => {

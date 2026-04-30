@@ -76,7 +76,7 @@ export default function CalendarPage() {
 
   const loadData = async () => {
     const lessons = await fetch("/api/lessons").then((r) => r.json());
-    const studentsData = await fetch("/api/students").then((r) => r.json());
+    const studentsData = await fetch("/api/students/active").then((r) => r.json());
     const groupsData = await fetch("/api/groups").then((r) => r.json());
     const topicsData = await fetch("/api/topics").then((r) => r.json());
 

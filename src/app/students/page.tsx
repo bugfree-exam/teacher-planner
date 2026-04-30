@@ -30,7 +30,7 @@ export default function StudentsPage() {
   });
 
   const loadStudents = async () => {
-    const res = await fetch("/api/students");
+    const res = await fetch("/api/students/all");
     const data = await res.json();
     setStudents(data);
   };

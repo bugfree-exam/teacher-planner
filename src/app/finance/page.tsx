@@ -38,7 +38,7 @@ export default function FinancePage() {
   });
 
   const loadData = async () => {
-    const studentsData = await fetch("/api/students").then((r) => r.json());
+    const studentsData = await fetch("/api/students/active").then((r) => r.json());
     const paymentsData = await fetch("/api/payments").then((r) => r.json());
     const balancesData = await fetch("/api/balances").then((r) => r.json());
 
