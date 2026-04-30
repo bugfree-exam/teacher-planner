@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: teacher_planner_db
+    restart: always
+    environment:
+      POSTGRES_USER: teacher
+      POSTGRES_PASSWORD: teacher_password
+      POSTGRES_DB: teacher_planner
+    ports:
+      - "5432:5432"
+    volumes:
+      - teacher_planner_data:/var/lib/postgresql/data
+
+volumes:
+  teacher_planner_data:
