@@ -282,7 +282,7 @@ export default function GroupsPage() {
                   Выдать ДЗ группе
                 </button>
 
-                {/* <div className="space-y-2">
+                <div className="space-y-2">
                   {group.homeworks.length === 0 && (
                     <div className="text-sm text-gray-500">ДЗ для группы пока нет</div>
                   )}
@@ -301,7 +301,7 @@ export default function GroupsPage() {
                       </div>
                     </div>
                   ))}
-                </div> */}
+                </div>
               </div>
 
               <button
