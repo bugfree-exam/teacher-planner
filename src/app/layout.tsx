@@ -6,7 +6,16 @@ export const metadata: Metadata = {
   description: "Планер репетитора",
 };
 
-
+// Добавил комментарий!
+const navItems = [
+  { href: "/dashboard", label: "Дашборд", icon: "📊" },
+  { href: "/analytics", label: "Аналитика", icon: "📈" },
+  { href: "/calendar", label: "Календарь", icon: "📅" },
+  { href: "/students", label: "Ученики", icon: "👨‍🎓" },
+  { href: "/groups", label: "Группы", icon: "👥" },
+  { href: "/finance", label: "Финансы", icon: "💰" },
+  { href: "/lessons", label: "Занятия", icon: "🧾" },
+];
 
 export default function RootLayout({
   children,
